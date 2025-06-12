@@ -1,0 +1,7 @@
+# Ingore compiled object files and dependencies
+obj/
+dep/
+bin/
+*.o
+*.d
+
