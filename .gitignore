@@ -5,3 +5,6 @@ bin/
 *.o
 *.d
 
+# VS Code editor settings
+.vscode/
+
