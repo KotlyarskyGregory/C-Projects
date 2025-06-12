@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "operations_declaration.h": "c",
-        "stdio.h": "c",
-        "parser.h": "c",
-        "math.h": "c",
-        "string.h": "c"
-    }
-}
