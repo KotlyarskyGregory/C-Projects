@@ -1,7 +1,12 @@
 typedef struct
 {
  int dataValue;
- struct Node* nextPointer;
- struct Node* previousPointer;
-} Node;
 
+} Data;
+
+typedef struct 
+{
+    LinkedList *previousNode;
+    LinkedList *nextNode;
+    Data *data;
+} LinkedList;
