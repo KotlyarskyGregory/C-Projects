@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "../include/singly_linked_list.h"
 
 int main(void) {
-    List myList;
+    List testList;
 
-    initList(&myList);
-    
+    initList(&testList);
+
     for (int i = 0; i < 5; i++) {
-        addToTail(&myList, i, i + 1);
+        addToTail(&testList, i, i+1);
     }
 
-    printList(&myList);
+    printList(&testList);
 
     return 0;
-    
 }

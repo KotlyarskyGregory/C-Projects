@@ -2,46 +2,46 @@
 #include <stdlib.h>
 #include "../include/singly_linked_list.h"
 
-void initList(List *list) {
-    list->head = NULL;
-    list->tail = NULL;
-    list->inputsCounter = 0;
+// Function to initialize list
+void initList(List *myList) {
+    myList->head = NULL;
+    myList->tail = NULL;
+    myList->nodeCounter = 0;
     return;
 }
 
-void addToTail(List *list, int input, int otherInput) {
-    Node *newNode = (Node*) malloc(sizeof(*newNode));
-    Data *newData = (Data*) malloc(sizeof(*newData));
-    
-    if (!newNode || !newData) {
-        printf("Not able to allocate for new node or new data.\n");
-        return;
-    }
+// Function to add to tail
+void addToTail (List *myList, int varOne, int varTwo) {
+    Node *newNode = (Node*) malloc(sizeof(Node));
+    Data *newData = (Data*) malloc (sizeof(Data));
 
-    newData->value = input;
-    newData->otherValue = otherInput;
+    newData->inputOne = varOne;
+    newData->inputTwo = varTwo;
     newNode->data = newData;
-    newNode->nextNodePointer = NULL;
+    newNode->pointerNextNode = NULL;
 
-    if (list->head == NULL) {
-        list->head = newNode;
-        list->tail = newNode;
+    if (myList->head == NULL) {
+        myList->head = newNode;
+        myList->tail = newNode;
     } else {
-        list->tail = newNode;
+        myList->tail->pointerNextNode = newNode;
+        myList->tail = newNode;
     }
 
-    list->inputsCounter++;
-
+    myList->nodeCounter++;
+    
     return;
 }
 
-void printList(List *list) {
-    Node *tempHead = list->head;
+// Function to print list
+void printList(List *myList) {
+    Node *tempHead = myList->head;
+
     while (tempHead != NULL) {
-        printf("%i %i\n", 
-            tempHead->data->value, tempHead->data->otherValue
+        printf("Input one: %d, Input 2: %d\n", 
+            tempHead->data->inputOne,
+            tempHead->data->inputTwo
         );
-        tempHead = tempHead->nextNodePointer;
+        tempHead = tempHead->pointerNextNode;
     }
-    printf("%i\n", list->inputsCounter);
 }
