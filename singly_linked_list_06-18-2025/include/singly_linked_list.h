@@ -1,19 +1,30 @@
-#ifndef Linked_List_H
-#define Linked_List_H
+#ifndef SINGLY_Linked_List_H
+#define SINGLY_Linked_List_H
 
-typedef struct 
+typedef struct Data
 {
-    int data;
+    int value;
+    int otherValue;
 } Data;
 
-typedef struct 
+typedef struct Node
 {
     struct Node *nextNodePointer;
-    struct Data *data;
+    Data *data;
 } Node;
 
-void initList(Node *node);
+typedef struct List
+{
+    struct Node *head;
+    struct Node *tail;
+    int inputsCounter;
+} List;
 
-void addToTail(Node *node, int input);
+
+void initList(List *list);
+
+void addToTail(List *list, int input, int otherInput);
+
+void printList(List *list);
 
 #endif
