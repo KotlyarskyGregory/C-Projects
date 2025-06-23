@@ -1,1 +1,0 @@
-Make a doubly linked list with the ability to remove entries by item index.
