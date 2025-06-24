@@ -18,5 +18,7 @@ int main(void) {
     printListReverse(&testList);
     printf("\n");
 
+    freeList(&testList);
+
     return 0;
 }

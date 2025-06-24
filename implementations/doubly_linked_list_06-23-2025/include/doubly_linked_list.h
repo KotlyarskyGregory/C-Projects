@@ -9,8 +9,8 @@ typedef struct Data
 
 typedef struct Node
 {
-    struct Node *nextNodePointer;
-    struct Node *prevNodePointer;
+    struct Node *pointerNextNode;
+    struct Node *pointerPrevNode;
     Data *data;
 } Node;
 
@@ -28,5 +28,7 @@ void addToTail(List *myList, const int inputVal, const int index);
 void printListForward(List *myList);
 
 void printListReverse(List *myList);
+
+void freeList(List *myList);
 
 #endif

@@ -21,15 +21,15 @@ void addToTail(List *myList, const int inputIndex, const int inputVal) {
     newData->storeIndex = inputIndex;
     newData->storeValue = inputVal;
     newNode->data = newData;
-    newNode->nextNodePointer = NULL;
-    newNode->prevNodePointer = NULL;
+    newNode->pointerNextNode = NULL;
+    newNode->pointerPrevNode = NULL;
 
     if (myList->head == NULL) {
         myList->head = newNode;
         myList->tail = newNode;
     } else {
-        newNode->prevNodePointer = myList->tail;
-        myList->tail->nextNodePointer = newNode;
+        newNode->pointerPrevNode = myList->tail;
+        myList->tail->pointerNextNode = newNode;
         myList->tail = newNode;
     }
 
@@ -46,7 +46,7 @@ void printListForward(List *myList) {
             tempHead->data->storeIndex, tempHead->data->storeValue
         );
         
-        tempHead = tempHead->nextNodePointer;
+        tempHead = tempHead->pointerNextNode;
     }
     return;
 }
@@ -59,8 +59,23 @@ void printListReverse(List *myList) {
             tempTail->data->storeIndex, tempTail->data->storeValue
         );
 
-        tempTail = tempTail->prevNodePointer;
+        tempTail = tempTail->pointerPrevNode;
     }
     return;
+}
+
+void freeList(List *myList) {
+    Node *tempHead = myList->head;
+
+    while (tempHead != NULL) {
+        Node *tempNextNode = tempHead->pointerNextNode;
+        free(tempHead->data);
+        free(tempHead);
+        tempHead = tempNextNode;
+    }
+
+    myList->head = NULL;
+    myList->tail = NULL;
+    myList->counterVar = 0;
 }
 
