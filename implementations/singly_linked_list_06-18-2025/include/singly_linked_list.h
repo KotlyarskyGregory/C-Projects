@@ -27,5 +27,7 @@ void addToTail(List *myList, int varOne, int varTwo);
 
 void printList(List *myList);
 
+void freeList(List *myList);
+
 
 #endif

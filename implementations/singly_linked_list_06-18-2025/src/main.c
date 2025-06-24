@@ -12,5 +12,7 @@ int main(void) {
 
     printList(&testList);
 
+    freeList(&testList);
+
     return 0;
 }

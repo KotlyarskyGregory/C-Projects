@@ -45,3 +45,21 @@ void printList(List *myList) {
         tempHead = tempHead->pointerNextNode;
     }
 }
+
+// Function to free list
+void freeList(List *myList) {
+    Node *tempHead = myList->head;
+
+    while (tempHead != NULL) {
+        Node *tempNextNode = tempHead->pointerNextNode;
+        free(tempHead->data);
+        free(tempHead);
+        tempHead = tempNextNode;
+    }
+
+    myList->head = NULL;
+    myList->tail = NULL;
+    myList->nodeCounter = 0;
+
+    return;
+}
