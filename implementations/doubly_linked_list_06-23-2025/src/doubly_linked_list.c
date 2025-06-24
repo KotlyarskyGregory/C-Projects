@@ -77,5 +77,7 @@ void freeList(List *myList) {
     myList->head = NULL;
     myList->tail = NULL;
     myList->counterVar = 0;
+
+    return;
 }
 
