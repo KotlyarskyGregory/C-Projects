@@ -1,12 +1,7 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
-typedef struct Data 
-{
-    /*
-    To be filled in by applicable data
-    */
-} Data;
+#include "data.h"
 
 typedef struct Node
 {

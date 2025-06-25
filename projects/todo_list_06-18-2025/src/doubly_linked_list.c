@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/doubly_linked_list.h"
+#include "../include/data.h"
 
 void initList(List *myList) {
     myList->head = NULL;
