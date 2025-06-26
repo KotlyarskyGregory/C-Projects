@@ -7,7 +7,7 @@
 
 typedef struct Array
 {
-    Data *data;
+    Data **data;
     int currentCapacity;
     int itemCount;
     
