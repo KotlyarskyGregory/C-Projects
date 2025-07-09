@@ -3,25 +3,19 @@
 
 #include <time.h>
 
-#define PRIORITY_LOW 0
-#define PRIOTIRY_MEDIUM 1
-#define PRIOTIRY_HIGH 2
-
 typedef struct Data 
 {
     char *taskName;
     char *category;
     char *taskDescription;
+    char *priority;
     time_t inputDate;
     time_t dueDate;
-    int priority;
 
 } Data;
 
-void getFields();
+Data* initData();
 
-void initData();
-
-void freeData();
+// void freeData();
 
 #endif

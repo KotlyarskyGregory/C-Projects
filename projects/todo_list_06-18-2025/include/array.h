@@ -7,7 +7,7 @@
 
 typedef struct Array
 {
-    Data **data;
+    Data **entries;
     int currentCapacity;
     int itemCount;
     
@@ -15,7 +15,7 @@ typedef struct Array
 
 void initArray(Array *myArray, const int initialCapacity);
 
-void addToArray(Array *myArray, Data *myData);
+void addToArray(Array *myArray, Data *newDataInput);
 
 
 #endif

@@ -12,8 +12,8 @@ void initList(List *myList) {
 }
 
 void addToTail(List *myList, const Data *data) { // TODO: add function pointer typedefs
-    Data *newData = (Data*) malloc(sizeof(Data));
-    Node *newNode = (Node*) malloc(sizeof(Node));
+    Data *newData = malloc(sizeof(Data));
+    Node *newNode = malloc(sizeof(Node));
 
     if (!newData || !newNode) {
         printf("Memory allocation to new node/data failed.\n");
