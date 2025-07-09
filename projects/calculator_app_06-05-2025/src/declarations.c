@@ -4,7 +4,7 @@
 #include <math.h>
 #include "../include/operations_declaration.h"
 #include "../include/parser.h"
-#include "../include/history.h"
+
 
 ParsedExpression parseInput(void) {
 
@@ -64,51 +64,4 @@ double outputValue(const ParsedExpression expression) {
     }
 
     return output;
-}
-
-void initHistory(History* history, int initialCapacity) {
-    history->entries = malloc(sizeof(char*) * initialCapacity);
-    history->currentCapacity = initialCapacity;
-    history->itemCount = 0;
-    
-    return;
-}
-
-void addToHistory(History *history, const char *entry) {
-    if (history->itemCount == history->currentCapacity) {
-        history->entries = realloc(history->entries, 
-            sizeof(char*) * history->currentCapacity * 2
-        );
-            history->currentCapacity *= 2;
-    } 
-    
-    history->entries[history->itemCount] = malloc(strlen(entry) + 1);
-
-    if (history->entries[history->itemCount] != NULL) {
-        strcpy(history->entries[history->itemCount], entry);
-    }
-    
-    history->itemCount++;
-    return;
-    
-}
-
-void getHistory(const History *history) {
-    for (int i = 0; i < history->itemCount; i++) {
-        printf("%s\n", history->entries[i]);
-    }
-    
-    return;
-}
-
-void freeHistory(History *history) {
-    for (int i = 0; i < history->itemCount; i++) {
-        free(history->entries[i]);
-    }
-    
-    free(history->entries);
-
-    history->currentCapacity = 0;
-    history->itemCount = 0;
-    history->entries = NULL;
 }
