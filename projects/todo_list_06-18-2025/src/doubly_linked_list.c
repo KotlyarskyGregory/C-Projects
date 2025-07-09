@@ -20,7 +20,7 @@ void addToTail(List *myList, const Data *data) { // TODO: add function pointer t
         return;
     }
 
-    newData = data; // TODO: replace with deep copy later
+    newData = data; // TODO: replace with deep copy later, also check why this voilates const Data *data in function
     newNode->data = newData;
     newNode->pointerPrevNode = NULL;
     newNode->pointerNextNode = NULL;

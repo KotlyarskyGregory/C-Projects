@@ -46,7 +46,7 @@ Data* initData() {
             buffer[i] = tolower(buffer[i]);
         }
         
-        if (!strcspn(buffer, "high") || !strcspn(buffer, "medium") || !strcspn(buffer, "low")) {
+        if (!strcmp(buffer, "high") || !strcmp(buffer, "medium") || !strcmp(buffer, "low")) {
             newDataInput->priority = malloc(strlen(buffer) + 1);
             strcpy(newDataInput->priority, buffer);
             break;
@@ -55,8 +55,16 @@ Data* initData() {
         }
 
     }
-    
-    printf("\n");
+
+    // User input due date
+    while (1) 
+    {
+        printf("Please enter a due date (mm/dd/yyyy):");
+
+    }
+
+    // Automatically enter input date
+    time(&newDataInput->inputDate);
 
     return newDataInput;
 
