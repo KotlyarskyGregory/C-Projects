@@ -57,8 +57,23 @@ Data* initData() {
     }
 
     // User input due date
+    newDataInput->dueDate = getDueDate();
+
+    // Automatically enter input date
+    time(&newDataInput->inputDate);
+
+    return newDataInput;
+
+}
+
+// function to get dueDate
+time_t getDueDate() {
+    
+    time_t resultDueDate;
+
     while (1) 
     {
+        char buffer[100];
         int month, day, year, hour, minute;
         int valid = 1;
         char extra;
@@ -72,7 +87,6 @@ Data* initData() {
         
         if (count != 5) {
             printf("Input must be 24h time (mm/dd/yyyy hh:mm) with no trailing spaces.\n");
-            printf("Count: %d\n", count);
             valid = 0;
         }
         
@@ -113,9 +127,10 @@ Data* initData() {
         timeStruct.tm_isdst = -1;
 
         time_t currentTime;
+        
         time(&currentTime);
         
-        time_t resultDueDate = mktime(&timeStruct);
+        resultDueDate = mktime(&timeStruct);
 
         if (resultDueDate == -1) {
             printf("Error converting time.\n");
@@ -130,14 +145,9 @@ Data* initData() {
         if (valid == 0) {
             continue;
         } else {
-            printf("Date accepted.\n");
             break;
         }
     }
-
-    // Automatically enter input date
-    time(&newDataInput->inputDate);
-
-    return newDataInput;
-
+    
+    return resultDueDate;
 }

@@ -8,10 +8,12 @@ int main(void) {
 
     Data *output = initData();
 
-    printf("%s\n", output->taskName);
-    printf("%s\n", output->category);
-    printf("%s\n", output->taskDescription);
-    printf("%s\n", output->priority);
-    printf("%s\n", ctime(&output->inputDate));
+    printf("\n");
+    printf("Task name: %s\n", output->taskName);
+    printf("Task category: %s\n", output->category);
+    printf("Task description: %s\n", output->taskDescription);
+    printf("Task priority: %s\n", output->priority);
+    printf("Task input date: %s", ctime(&output->inputDate));
+    printf("Task due date: %s", ctime(&output->dueDate));
 
 }
