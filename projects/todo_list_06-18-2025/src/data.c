@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 #include "../include/data.h"
 
 Data* initData() {
@@ -73,6 +73,7 @@ void freeData(Data *removeData) {
     free(removeData->taskDescription);
     free(removeData->priority);
     free(removeData);
+    return;
 }
 
 // function to get dueDate
