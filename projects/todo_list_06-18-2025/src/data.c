@@ -66,6 +66,15 @@ Data* initData() {
 
 }
 
+//function to free data
+void freeData(Data *removeData) {
+    free(removeData->taskName);
+    free(removeData->category);
+    free(removeData->taskDescription);
+    free(removeData->priority);
+    free(removeData);
+}
+
 // function to get dueDate
 time_t getDueDate() {
     

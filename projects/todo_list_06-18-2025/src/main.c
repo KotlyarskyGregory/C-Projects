@@ -16,4 +16,6 @@ int main(void) {
     printf("Task input date: %s", ctime(&output->inputDate));
     printf("Task due date: %s", ctime(&output->dueDate));
 
+    free(output);
+
 }
