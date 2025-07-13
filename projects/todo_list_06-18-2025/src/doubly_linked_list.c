@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "../include/doubly_linked_list.h"
 #include "../include/data.h"
 
@@ -11,7 +12,7 @@ void initList(List *myList) {
     return;
 }
 
-void addToTail(List *myList, const Data *data) { // TODO: add function pointer typedefs
+void addToTail(List *myList) { // TODO: add function pointer typedefs
     Data *newData = malloc(sizeof(Data));
     Node *newNode = malloc(sizeof(Node));
 
@@ -20,7 +21,7 @@ void addToTail(List *myList, const Data *data) { // TODO: add function pointer t
         return;
     }
 
-    newData = data; // TODO: replace with deep copy later, also check why this voilates const Data *data in function
+    newData = initData();
     newNode->data = newData;
     newNode->pointerPrevNode = NULL;
     newNode->pointerNextNode = NULL;
@@ -66,7 +67,7 @@ void removeNode(List *myList, Node *removeNode) { // TODO: add function pointer 
         tempNode->pointerPrevNode->pointerNextNode = tempNode->pointerNextNode;
     }
     
-    free(tempNode->data); // TODO: call data-specific free function later
+    freeData(tempNode->data);
     free(tempNode);
 
     myList->counterVar--;
@@ -74,7 +75,20 @@ void removeNode(List *myList, Node *removeNode) { // TODO: add function pointer 
     return;
 }
 
-void clearList(List *myList) { // TODO: add function pointer typedefs
+void printList(List *myList) {
+
+    Node *tempHead = myList->head;
+
+    while (tempHead != NULL) {
+        printData(tempHead->data);
+
+        tempHead = tempHead->pointerNextNode;
+    }
+
+    return;
+}
+
+void clearList(List *myList) { // TODO: fix memory leak
     if (!myList->head || !myList->tail) {
         printf("List is already empty\n");
         return;
@@ -84,7 +98,7 @@ void clearList(List *myList) { // TODO: add function pointer typedefs
     
     while(tempNode != NULL) {
             Node *tempNodeNext = tempNode->pointerNextNode;
-            free(tempNode->data); // TODO: call data-specific free function later
+            freeData(tempNode->data);
             free(tempNode);
             tempNode = tempNodeNext;
     }

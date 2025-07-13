@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+
 #include "../include/data.h"
 
 Data* initData() {
@@ -64,16 +65,6 @@ Data* initData() {
 
     return newDataInput;
 
-}
-
-//function to free data
-void freeData(Data *removeData) {
-    free(removeData->taskName);
-    free(removeData->category);
-    free(removeData->taskDescription);
-    free(removeData->priority);
-    free(removeData);
-    return;
 }
 
 // function to get dueDate
@@ -163,9 +154,33 @@ time_t getDueDate() {
         if (valid == 0) {
             continue;
         } else {
+            printf("-----------------------------------------------------\n");
             break;
         }
     }
     
     return resultDueDate;
+}
+
+void printData(Data *myData) {
+    printf("-----------------------------------------------------\n");
+    printf("Task name: %s\n", myData->taskName);
+    printf("Task category: %s\n", myData->category);
+    printf("Task description: %s\n", myData->taskDescription);
+    printf("Task priority: %s\n", myData->priority);
+    printf("Task input date: %s", ctime(&myData->inputDate));
+    printf("Task due date: %s", ctime(&myData->dueDate));
+    printf("-----------------------------------------------------\n");
+
+    return;
+}
+
+//function to free data
+void freeData(Data *removeData) {
+    free(removeData->taskName);
+    free(removeData->category);
+    free(removeData->taskDescription);
+    free(removeData->priority);
+    free(removeData);
+    return;
 }

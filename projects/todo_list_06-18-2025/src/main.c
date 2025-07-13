@@ -2,20 +2,33 @@
 #include <time.h>
 
 #include "../include/data.h"
+#include "../include/doubly_linked_list.h"
+#include "../include/array.h"
 
 int main(void) {
     printf("Hello world\n");
 
-    Data *output = initData();
+    List myList;
+    //Array myArray;
 
-    printf("\n");
-    printf("Task name: %s\n", output->taskName);
-    printf("Task category: %s\n", output->category);
-    printf("Task description: %s\n", output->taskDescription);
-    printf("Task priority: %s\n", output->priority);
-    printf("Task input date: %s", ctime(&output->inputDate));
-    printf("Task due date: %s", ctime(&output->dueDate));
+    //int initialCapacity = INITIAL_CAPACITY;
 
-    freeData(output);
+    initList(&myList);
+    //initArray(&myArray, initialCapacity);
+
+
+    addToTail(&myList);
+    addToTail(&myList);
+
+    //buildArray(&myArray, &myList);
+    //printArray(&myArray);
+    
+    clearList(&myList);
+
+    printf("Got to here\n");
+
+    //clearArray(&myArray); 
+
+    printf("Success\n");
 
 }

@@ -19,6 +19,8 @@ Data* initData();
 
 time_t getDueDate();
 
+void printData(Data *myData);
+
 void freeData(Data *removeData);
 
 #endif

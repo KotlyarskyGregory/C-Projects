@@ -21,9 +21,11 @@ typedef struct List
 
 void initList(List *myList);
 
-void addToTail(List *myList, const Data *data);
+void addToTail(List *myList);
 
 void removeNode(List *myList, Node *removeNode);
+
+void printList(List *mylist);
 
 void clearList(List *myList);
 
