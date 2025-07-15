@@ -1,6 +1,6 @@
 # === Compiler and Flags ===
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11 -Iinclude -MMD -MP
+CFLAGS = -Wall -Wextra -pedantic -std=c11 -g -Iinclude -MMD -MP
 
 # === Directory Structure ===
 SRC_DIR = src

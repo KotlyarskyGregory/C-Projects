@@ -12,16 +12,15 @@ void initList(List *myList) {
     return;
 }
 
-void addToTail(List *myList) { // TODO: add function pointer typedefs
-    Data *newData = malloc(sizeof(Data));
+void addToTail(List *myList) {
     Node *newNode = malloc(sizeof(Node));
 
-    if (!newData || !newNode) {
+    if (!newNode) {
         printf("Memory allocation to new node/data failed.\n");
         return;
     }
 
-    newData = initData();
+    Data *newData = initData();
     newNode->data = newData;
     newNode->pointerPrevNode = NULL;
     newNode->pointerNextNode = NULL;
@@ -40,7 +39,7 @@ void addToTail(List *myList) { // TODO: add function pointer typedefs
     return;
 }
 
-void removeNode(List *myList, Node *removeNode) { // TODO: add function pointer typedefs
+void removeNode(List *myList, Node *removeNode) {
     Node *tempNode = removeNode;
     
     if (!myList->head || !myList->tail) {
@@ -88,24 +87,25 @@ void printList(List *myList) {
     return;
 }
 
-void clearList(List *myList) { // TODO: fix memory leak
+void clearList(List *myList) {
     if (!myList->head || !myList->tail) {
         printf("List is already empty\n");
         return;
     }
 
-    Node *tempNode = myList->head;
+    Node *tempHead = myList->head;
     
-    while(tempNode != NULL) {
-            Node *tempNodeNext = tempNode->pointerNextNode;
-            freeData(tempNode->data);
-            free(tempNode);
-            tempNode = tempNodeNext;
+    while(tempHead != NULL) {
+            Node *tempHeadNext = tempHead->pointerNextNode;
+            freeData(tempHead->data);
+            free(tempHead);
+            tempHead = tempHeadNext;
     }
 
     myList->head = NULL;
     myList->tail = NULL;
     myList->counterVar = 0;
+    
     
     return;
 }

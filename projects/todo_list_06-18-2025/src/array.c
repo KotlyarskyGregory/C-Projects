@@ -70,11 +70,9 @@ void printArray(Array *myArray) {
     return;
 }
 
-void clearArray(Array *myArray) { //TODO: figure out why now working right, double free.
-    for (int i = 0; i < myArray->itemCount; i++) {
-        free(myArray->entries);
-    }
-    
+void clearArray(Array *myArray) {
+    free(myArray->entries);
+        
     return;
 }
 
