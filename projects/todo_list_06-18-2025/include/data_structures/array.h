@@ -1,8 +1,8 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
-#include "data.h"
-#include "doubly_linked_list.h"
+#include "../user_input/data.h"
+#include "./doubly_linked_list.h"
 
 #define INITIAL_CAPACITY 10;
 

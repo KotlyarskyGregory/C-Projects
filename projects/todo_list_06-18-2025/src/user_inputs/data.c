@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../include/data.h"
-#include"../include/data_functions.h"
+#include "../../include/user_input/data.h"
+#include"../../include/user_input/data_functions.h"
 
 Data* initData() {
     Data *newDataInput = malloc(sizeof(Data));

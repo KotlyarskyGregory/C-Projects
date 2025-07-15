@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include "../include/data.h"
+#include "../../include/user_input/data_functions.h"
 
 // function to get dueDate
 time_t getDueDate() {

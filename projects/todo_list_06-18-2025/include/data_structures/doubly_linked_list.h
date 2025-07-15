@@ -1,7 +1,7 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
-#include "data.h"
+#include "../user_input/data.h"
 
 typedef struct Node
 {

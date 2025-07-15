@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/doubly_linked_list.h"
-#include "../include/data.h"
+#include "../../include/data_structures/doubly_linked_list.h"
+#include "../../include/user_input/data.h"
 
 void initList(List *myList) {
     myList->head = NULL;

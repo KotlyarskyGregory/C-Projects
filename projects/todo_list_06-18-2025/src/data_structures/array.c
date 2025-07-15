@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/array.h"
-#include "../include/data.h"
+#include "../../include/data_structures/array.h"
+#include "../../include/user_input/data.h"
 
 
 void initArray(Array *myArray, const int initialCapacity) {

@@ -1,6 +1,6 @@
 # === Compiler and Flags ===
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11 -g -Iinclude -MMD -MP
+CFLAGS = -Wall -Wextra -pedantic -std=c11 -g -Iinclude -Iinclude/data_structures -Iinclude/user_input -MMD -MP
 
 # === Directory Structure ===
 SRC_DIR = src
@@ -10,7 +10,7 @@ INC_DIR = include
 DEP_DIR = dep
 
 # === File Lists ===
-SOURCES  = $(wildcard $(SRC_DIR)/*.c)
+SOURCES  = $(shell find $(SRC_DIR) -name '*.c')
 OBJECTS  = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SOURCES))
 DEPS     = $(patsubst $(SRC_DIR)/%.c, $(DEP_DIR)/%.d, $(SOURCES))
 TARGET   = $(BIN_DIR)/program
@@ -23,10 +23,10 @@ $(TARGET): $(OBJECTS) | $(BIN_DIR)
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 
 # === Compile Source Files ===
-# Generates .o in obj/ and .d in dep/
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
-	mv -f $(basename $@).d $(DEP_DIR)/$*.d
+	@mv -f $(basename $@).d $(DEP_DIR)/$*.d 2>/dev/null || true
 
 # === Create Directories if Needed ===
 $(OBJ_DIR):
